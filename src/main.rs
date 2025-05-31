@@ -32,11 +32,21 @@ async fn main() -> anyhow::Result<()> {
         let _ = data.build_bangs().await;
     }
 
+    let raw_bangs: HashMap<String, bangs::Bang> = data.read_bangs_binary()?;
+    let bangs = BangMap::new(raw_bangs);
+
+    if args.list {
+        return bangs.list_keys();
+    }
+
     if let Some(tag) = &args.tag {
-        let raw_bangs: HashMap<String, bangs::Bang> = data.read_bangs_binary()?;
-        let bangs = BangMap::new(raw_bangs);
-        let url = bangs.resolve_bang(tag, args.query)?;
-        println!("{}", url);
+        if tag.starts_with('!') {
+            let url = bangs.resolve_bang(tag, args.query)?;
+            println!("{}", url);
+        } else {
+            error!("❌ Tag must start with the bang operator '!'");
+            std::process::exit(1);
+        }
     }
     Ok(())
 }

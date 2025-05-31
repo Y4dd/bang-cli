@@ -15,6 +15,9 @@ pub struct Cli {
     #[arg(long)]
     pub rebuild: bool,
 
+    #[arg(long)]
+    pub list: bool,
+
     /// The bang tag (e.g., "g" for Google)
     #[arg(required = false)]
     pub tag: Option<String>,

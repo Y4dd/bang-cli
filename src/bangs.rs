@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use anyhow::{anyhow, Result};
+use anyhow::{anyhow, Ok, Result};
 use log::debug;
 use serde::{Deserialize, Serialize};
 
@@ -27,6 +27,7 @@ impl BangMap {
     }
 
     pub fn resolve_bang(&self, tag: &String, query: Option<Vec<String>>) -> Result<String> {
+        let tag = &tag[1..];
         let bang = self
             .bangs
             .get(tag)
@@ -40,5 +41,12 @@ impl BangMap {
         } else {
             Ok(bang.d.clone())
         }
+    }
+
+    pub fn list_keys(&self) -> Result<()> {
+        for tag in self.bangs.keys() {
+            println!("{}", tag);
+        }
+        Ok(())
     }
 }

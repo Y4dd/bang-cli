@@ -1,7 +1,7 @@
 use clap::Parser;
 
 #[derive(Parser, Debug)]
-#[command(name = "banger", author, version, about)]
+#[command(name = "bang", author, version, about)]
 pub struct Cli {
     /// Clean the data directory
     #[arg(long)]

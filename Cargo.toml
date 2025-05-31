@@ -2,6 +2,8 @@
 name = "bang-cli"
 version = "0.1.0"
 edition = "2021"
+authors = ["Yadd y4dd.sh@gmail.com"]
+license = "MIT"
 
 [dependencies]
 anyhow = "1.0.98"

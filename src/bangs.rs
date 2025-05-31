@@ -26,7 +26,7 @@ impl BangMap {
         BangMap { bangs }
     }
 
-    pub fn resolve_bang(&self, tag: &String, query: Option<Vec<String>>) -> Result<String> {
+    pub fn resolve_bang(&self, tag: &str, query: Option<Vec<String>>) -> Result<String> {
         let tag = &tag[1..];
         let bang = self
             .bangs

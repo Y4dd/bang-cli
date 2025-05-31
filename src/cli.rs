@@ -1,5 +1,4 @@
 use clap::Parser;
-use env_logger;
 
 #[derive(Parser, Debug)]
 #[command(name = "banger", author, version, about)]

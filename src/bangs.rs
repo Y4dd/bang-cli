@@ -36,9 +36,9 @@ impl BangMap {
             let joined = query.join(" ");
             let encoded_query = urlencoding::encode(&joined);
             let template_with_query = bang.u.replace("{{{s}}}", &encoded_query);
-            return Ok(template_with_query);
+            Ok(template_with_query)
         } else {
-            return Ok(bang.d.clone());
+            Ok(bang.d.clone())
         }
     }
 }

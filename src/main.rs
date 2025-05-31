@@ -35,7 +35,7 @@ async fn main() -> anyhow::Result<()> {
     if let Some(tag) = &args.tag {
         let raw_bangs: HashMap<String, bangs::Bang> = data.read_bangs_binary()?;
         let bangs = BangMap::new(raw_bangs);
-        let url = bangs.resolve_bang(&tag, args.query)?;
+        let url = bangs.resolve_bang(tag, args.query)?;
         println!("{}", url);
     }
     Ok(())

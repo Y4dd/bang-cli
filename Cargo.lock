@@ -110,7 +110,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "banger"
+name = "bang-cli"
 version = "0.1.0"
 dependencies = [
  "anyhow",

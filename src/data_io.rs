@@ -15,10 +15,10 @@ impl DataIO {
             .ok_or_else(|| anyhow::anyhow!("Could not find data directory"))?
             .join("banger");
 
-        return Ok(Self {
+        Ok(Self {
             bin_dir: data_dir.join("bangs.bin"),
             data_dir,
-        });
+        })
     }
 
     pub fn clean_data_dir(&self) -> Result<()> {
@@ -38,16 +38,16 @@ impl DataIO {
 
     fn create_data_dir(&self) -> Result<()> {
         if !self.data_dir.exists() {
-            return fs::create_dir_all(self.data_dir.clone()).map_err(|e| {
+            fs::create_dir_all(self.data_dir.clone()).map_err(|e| {
                 anyhow::anyhow!(
                     "Failed to create data directory {}: {}",
                     self.data_dir.display(),
                     e
                 )
-            });
+            })
         } else {
             info!("Data directory already created");
-            return Ok(());
+            Ok(())
         }
     }
 
@@ -77,7 +77,7 @@ impl DataIO {
     pub async fn build_bangs(&self) -> Result<()> {
         self.create_data_dir()?;
         let bangs_json = self.fetch_bangs().await?;
-        return self.save_binary(bangs_json);
+        self.save_binary(bangs_json)
     }
 
     pub fn read_bangs_binary(&self) -> Result<HashMap<String, Bang>> {

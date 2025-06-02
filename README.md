@@ -1,6 +1,6 @@
 <!-- badges: start -->
 
-[![GitHub license](https://badgen.net/github/license/Y4dd/bang-cli)](https://github.com/Y4dd/bang-cli/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/Y4dd/bang-cli)](https://github.com/Y4dd/bang-cli/blob/master/LICENSE)
 
 <!-- badges: end -->
 
@@ -37,6 +37,9 @@ bang !npm typescript
 # https://www.npmjs.com/search?q=typescript
 bang !npm
 # https://www.npmjs.com
+
+# You can search bangs on their official website
+bang !bangs cargo
 ```
 
 ### Utility

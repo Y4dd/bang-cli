@@ -1,10 +1,14 @@
 [package]
 name = "bang-cli"
 description = "A blazingly fast CLI made in rust that compiles DuckDuckGo-style `!bang` shortcuts into a binary map for instant query resolution"
-version = "0.1.0"
-edition = "2021"
+version = "0.1.1"
+repository = "https://github.com/Y4dd/bang-cli"
 authors = ["Yadd y4dd.sh@gmail.com"]
 license = "MIT"
+keywords = ["CLI", "Utility", "Launcher", "DuckDuckGo", "Bang"]
+categories = ["command-line-utilities"]
+exclude = ["/scripts"]
+edition = "2021"
 
 [dependencies]
 anyhow = "1.0.98"

@@ -2,15 +2,15 @@ mod bangs;
 mod cli;
 mod data_io;
 
-use anyhow::Ok;
+use anyhow::{Ok, Result};
 use bangs::BangMap;
 use cli::Cli;
 use data_io::DataIO;
-use log::error;
+use log::{error, info};
 use std::collections::HashMap;
 
 #[tokio::main]
-async fn main() -> anyhow::Result<()> {
+async fn main() -> Result<()> {
     let data = DataIO::new()?;
     let args = Cli::init();
 
@@ -29,6 +29,7 @@ async fn main() -> anyhow::Result<()> {
     }
 
     if !data.bin_dir.exists() {
+        info!("❌ Binary map does not exist, building it.");
         let _ = data.build_bangs().await;
     }
 

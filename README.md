@@ -13,6 +13,10 @@ A blazingly fast CLI made in rust that compiles DuckDuckGo-style `!bang` shortcu
 This queries DuckDuckGo's bang data and saves it as binary in the user's data directory
 You can view the JSON data at [DuckDuckGo BANG!](https://duckduckgo.com/bang.js)
 
+## Demo with Launcher
+
+https://github.com/user-attachments/assets/8afee682-4ea2-4ff2-97eb-69fb41381a89
+
 ## Installation
 
 ```bash
